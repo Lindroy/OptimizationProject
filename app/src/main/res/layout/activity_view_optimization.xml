@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ViewOptimizationActivity">
+
+    <!--include标签的使用-->
+    <TextView
+        android:textSize="18sp"
+        android:text="1、include标签的使用"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <include
+        android:id="@+id/tv_include1"
+        layout="@layout/layout_include"/>
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginEnd="40dp"
+        android:id="@+id/tv_include2"
+        layout="@layout/layout_include"/>
+
+    <include layout="@layout/layout_include2"/>
+
+    <include
+        android:id="@+id/view_same"
+        layout="@layout/layout_include2"/>
+
+    <!--merge标签的使用-->
+    <TextView
+        android:textSize="18sp"
+        android:text="2、merge标签的使用"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/view_merge"
+            layout="@layout/layout_merge"/>
+
+        <TextView
+            android:text="我不是merge中的布局"
+            android:layout_below="@+id/tv_merge1"
+            android:background="@android:color/holo_purple"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
+    </RelativeLayout>
+
+
+    <!--ViewStub标签的使用-->
+    <TextView
+        android:textSize="18sp"
+        android:text="3、ViewStub标签的使用"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ViewStub
+        android:id="@+id/view_stub"
+        android:inflatedId="@+id/view_inflate"
+        android:layout="@layout/layout_view_stub"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="显示"
+            android:id="@+id/btn_show"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:text="隐藏"
+            android:id="@+id/btn_hide"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:text="操作父布局控件"
+            android:id="@+id/btn_control"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+</LinearLayout>
